@@ -1,0 +1,52 @@
+.vertical-slider {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.mySwiper {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Pozadina svakog slajda */
+.slide-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* tamni overlay */
+.slide-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1;
+}
+
+.slide-content {
+  z-index: 2;
+  color: white;
+  text-align: center;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.7);
+}
+
+.slide-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.slide-content p {
+  font-size: 1.3rem;
+}
+
+/* Pagination dots desno */
+.swiper-pagination {
+  right: 20px !important;
+}

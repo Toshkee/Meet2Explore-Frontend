@@ -1,0 +1,87 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 7%;
+
+  z-index: 200;
+
+  /* Transparent glass effect when at top */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+  transition: background 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+}
+
+/* ======= SCROLLED NAVBAR ======= */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(0px);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* ======= LOGO ======= */
+.nav-logo a {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0b5ed7;
+}
+
+/* ======= LINKS ======= */
+.nav-links {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+  font-weight: 500;
+}
+
+.nav-links li a {
+  color: #0d0d0d;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.nav-links li a:hover {
+  opacity: 1;
+}
+
+/* ======= BUTTONS ======= */
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-login,
+.nav-signup {
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+/* Outline */
+.nav-login {
+  border: 2px solid #0b5ed7;
+  color: #0b5ed7;
+}
+.nav-login:hover {
+  background: #0b5ed7;
+  color: white;
+}
+
+/* Solid */
+.nav-signup {
+  background: #0b5ed7;
+  color: white;
+}
+.nav-signup:hover {
+  background: #0949a6;
+}
