@@ -27,11 +27,7 @@ const CreateTrip = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    // ❗ FRONTEND ONLY — bez localStorage, bez backend poziva
-    console.log("Trip created (frontend only):", formData);
-
-    // nakon submit-a: vrati usera na dashboard
+ 
     navigate("/dashboard");
   }
 
