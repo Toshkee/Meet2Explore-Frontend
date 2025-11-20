@@ -61,10 +61,10 @@ const SignUp = () => {
         <label>Confirm password</label>
         <input
           type="password"
-          name="passwordConf"
+          name="confirmPassword"
           placeholder="Repeat your password"
           required
-          value={passwordConf}
+          value={formData.confirmPassword}
           onChange={handleChange}
         />
 
