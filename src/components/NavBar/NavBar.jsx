@@ -9,13 +9,14 @@ const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // scroll effect blur
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // simulated login state
+  // detect if user is “logged in” (frontend fake logic)
   useEffect(() => {
     setIsLoggedIn(location.pathname.startsWith("/dashboard"));
   }, [location.pathname]);
@@ -26,38 +27,47 @@ const NavBar = () => {
 
   return (
     <nav className={scrolled ? "navbar scrolled" : "navbar"}>
+      
+      {/* ====== LOGO ====== */}
       <div className="nav-logo">
-        <Link to="/">Meet2Explore</Link>
+        <Link to="/">
+          <img src="/images/Logo.png" className="nav-logo-img" alt="Logo" />
+          <span className="nav-logo-text">Meet2Explore</span>
+        </Link>
       </div>
 
-      {/* NOT LOGGED IN */}
+      {/* ====== GUEST (NOT LOGGED IN) ====== */}
       {!isLoggedIn && (
         <div className="nav-buttons">
           <Link className="nav-login" to="/auth/signin">Sign in</Link>
           <Link className="nav-signup" to="/auth/signup">Sign up</Link>
         </div>
       )}
-{isLoggedIn && (
-  <div className="nav-loggedin">
 
-    <Link to="/dashboard/create-trip" className="nav-item">
-      Create Trip
-    </Link>
+      {/* ====== LOGGED IN NAV ====== */}
+      {isLoggedIn && (
+        <div className="nav-loggedin">
+          <Link to="/dashboard" className="nav-item">
+            Dashboard
+          </Link>
 
-    <Link to="/dashboard/my-trips" className="nav-item">
-      My Trips
-    </Link>
+          <Link to="/dashboard/create-trip" className="nav-item">
+            Create Trip
+          </Link>
 
-    <Link to="/dashboard/profile" className="nav-item">
-      My Profile
-    </Link>
+          <Link to="/dashboard/my-trips" className="nav-item">
+            My Trips
+          </Link>
 
-    <Link to="/" className="nav-item nav-signout">
-      Sign Out
-    </Link>
+          <Link to="/dashboard/profile" className="nav-item">
+            My Profile
+          </Link>
 
-  </div>
-)}
+          <button onClick={handleSignOut} className="nav-item nav-signout">
+            Sign Out
+          </button>
+        </div>
+      )}
     </nav>
   );
 };
