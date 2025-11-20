@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { registerUser } from "../../services/auth";
 import "./Auth.css";
 
 const SignUp = () => {
@@ -15,19 +16,23 @@ const SignUp = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  async function handleSubmit(e) {
+  e.preventDefault();
 
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-
-    console.log("SIGN UP:", formData);
-
-    // redirect after successful signup
-    navigate("/auth/signin");
+  if (formData.password !== formData.confirmPassword) {
+    alert("Passwords do not match!");
+    return;
   }
+
+  const result = await registerUser(formData.username, formData.password);
+
+  if (!result.success) {
+    alert(result.message);
+    return;
+  }
+
+  navigate("/auth/signin");
+}
 
   return (
     <div className="auth-container">

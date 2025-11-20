@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Auth.css";
-
+import { loginUser } from "../../services/auth";
 const SignIn = () => {
   const navigate = useNavigate();
 
@@ -14,15 +14,18 @@ const SignIn = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+ async function handleSubmit(e) {
+  e.preventDefault();
 
-    // Placeholder za backend auth
-    console.log("SIGN IN:", formData);
+  const result = await loginUser(formData.username, formData.password);
 
-    // Redirect after success
-    navigate("/dashboard");
+  if (!result.success) {
+    alert(result.message);
+    return;
   }
+
+  navigate("/dashboard");
+}
 
   return (
     <div className="auth-container">
