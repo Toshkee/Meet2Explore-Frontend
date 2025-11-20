@@ -9,30 +9,28 @@ const SignUp = () => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    confirmPassword: "",
+    passwordConf: "",
   });
 
-  function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  const {username, password, passwordConf} = formData;
 
-  async function handleSubmit(e) {
-  e.preventDefault();
+    const handleChange = (evt) => {
+    setFormData({ ...formData, [evt.target.name]: evt.target.value });
+  };
 
-  if (formData.password !== formData.confirmPassword) {
-    alert("Passwords do not match!");
-    return;
-  }
-
-  const result = await registerUser(formData.username, formData.password);
-
-  if (!result.success) {
-    alert(result.message);
-    return;
-  }
-
-  navigate("/auth/signin");
-}
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+    try {
+      const newUser = await registerUser(formData);
+      // Call the setUser function to update the user state, just like normal.
+      setUser(newUser);
+      // Take the user to the (non-existent) home page after they sign up.
+      // We'll get to this shortly!
+      navigate('/auth/signin');
+    } catch (err) {
+      console.log(err)
+    }
+  };
 
   return (
     <div className="auth-container">
@@ -46,27 +44,27 @@ const SignUp = () => {
           name="username"
           placeholder="Enter a username"
           required
-          value={formData.username}
+          value={username}
           onChange={handleChange}
         />
 
         <label>Password</label>
         <input
           type="password"
-          name="password"
+          name="hashedPassword"
           placeholder="Create a password"
           required
-          value={formData.password}
+          value={password}
           onChange={handleChange}
         />
 
         <label>Confirm password</label>
         <input
           type="password"
-          name="confirmPassword"
+          name="passwordConf"
           placeholder="Repeat your password"
           required
-          value={formData.confirmPassword}
+          value={passwordConf}
           onChange={handleChange}
         />
 

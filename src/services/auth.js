@@ -1,15 +1,15 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api/auth";
+const API_URL = "http://localhost:3000/auth";
 
 // =======================
 // REGISTER USER
 // =======================
-export async function registerUser(username, password) {
+export async function registerUser(username, hashedPassword) {
   try {
-    const res = await axios.post(`${API_URL}/register`, {
+    const res = await axios.post(`${API_URL}/sign-up`, {
       username,
-      password,
+      hashedPassword,
     });
 
     // token from backend
@@ -32,7 +32,7 @@ export async function registerUser(username, password) {
 // =======================
 export async function loginUser(username, password) {
   try {
-    const res = await axios.post(`${API_URL}/login`, {
+    const res = await axios.post(`${API_URL}/sign-in`, {
       username,
       password,
     });
