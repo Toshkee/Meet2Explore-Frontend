@@ -9,12 +9,10 @@ const SignUp = () => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    confirmPassword: "",
+    passwordConf: "",
   });
 
-  function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  const {username, password, passwordConf} = formData;
 
   async function handleSubmit(e) {
   e.preventDefault();
@@ -46,17 +44,17 @@ const SignUp = () => {
           name="username"
           placeholder="Enter a username"
           required
-          value={formData.username}
+          value={username}
           onChange={handleChange}
         />
 
         <label>Password</label>
         <input
           type="password"
-          name="password"
+          name="hashedPassword"
           placeholder="Create a password"
           required
-          value={formData.password}
+          value={password}
           onChange={handleChange}
         />
 
