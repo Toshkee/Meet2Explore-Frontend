@@ -2,7 +2,7 @@
 .home-wrapper {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #e8f0ff 0%, #f4f7ff 50%, #e2ebff 100%);
+  background: linear-gradient(135deg, #889609bb, #2a5298, #1bafe1d8);
   display: flex;
   justify-content: center;
   align-items: center;

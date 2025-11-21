@@ -14,23 +14,23 @@ const SignUp = () => {
 
   const {username, password, passwordConf} = formData;
 
-    const handleChange = (evt) => {
-    setFormData({ ...formData, [evt.target.name]: evt.target.value });
-  };
+  async function handleSubmit(e) {
+  e.preventDefault();
 
-  const handleSubmit = async (evt) => {
-    evt.preventDefault();
-    try {
-      const newUser = await registerUser(formData);
-      // Call the setUser function to update the user state, just like normal.
-      setUser(newUser);
-      // Take the user to the (non-existent) home page after they sign up.
-      // We'll get to this shortly!
-      navigate('/auth/signin');
-    } catch (err) {
-      console.log(err)
-    }
-  };
+  if (formData.password !== formData.confirmPassword) {
+    alert("Passwords do not match!");
+    return;
+  }
+
+  const result = await registerUser(formData.username, formData.password);
+
+  if (!result.success) {
+    alert(result.message);
+    return;
+  }
+
+  navigate("/auth/signin");
+}
 
   return (
     <div className="auth-container">
@@ -61,10 +61,10 @@ const SignUp = () => {
         <label>Confirm password</label>
         <input
           type="password"
-          name="confirmPassword"
+          name="passwordConfirmation"
           placeholder="Repeat your password"
           required
-          value={formData.confirmPassword}
+          value={formData.passwordConfirmation}
           onChange={handleChange}
         />
 
