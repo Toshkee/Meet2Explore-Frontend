@@ -1,16 +1,86 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌍 Meet2Explore — Connect, Explore & Travel Montenegro Together
 
-Currently, two official plugins are available:
+## Meet2Explore is a social travel-planning platform designed specifically for Montenegro.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Users can create trips, discover destinations, and connect with compatible travel partners — all in one place.
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
+🗺️ Create & Manage Trips
 
-## Expanding the ESLint configuration
+* Users can easily build customized travel plans with:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Montenegro-only destinations
+
+* Start & end dates
+
+* Budget options: Low / Medium / High
+
+* Travel styles: hiking, beach, road trip, culture, food tour, and more
+
+* Maximum group size selection
+
+## 💬 Real-Time Chat
+
+* Stay connected with travel partners through integrated chat:
+
+* 1-on-1 chat with matched partners
+
+* Automatic group chat for each created trip
+
+## 🏞️ Montenegro Destination Explorer
+
+* A curated in-app guide featuring:
+
+* Top places to visit
+
+* Mountain + sea combination itineraries
+
+* Photos, highlights, and must-do activities
+
+* Perfect for travelers new to Montenegro or locals exploring hidden gems.
+
+## 🧰 Tech Stack
+* Frontend
+
+* React
+
+* React Router
+
+* Axios
+
+* CSS Modules / SCSS / Tailwind (depending on project setup)
+
+* Backend
+
+* Node.js
+
+* Express
+
+* Mongoose
+
+* Database
+
+* MongoDB Atlas
+
+<br /><img src="./public/images/schema for read.me.png" alt="schema">
+
+
+<br /><img src="./public/images/Schema.png">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
