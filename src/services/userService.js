@@ -1,4 +1,4 @@
-const PROFILE_API = "https://meet2exploree-b38798365d15.herokuapp.com/auth";
+const PROFILE_API = "https://meet2exploree-b38798365d15.herokuapp.com/api/auth";
 
 export async function getProfile() {
   const token = localStorage.getItem("token");
