@@ -41,19 +41,3 @@ export async function updateTrip(id, data) {
 
   return res.data;
 }
-
-export async function joinTrip(id) {
-  const token = localStorage.getItem("token");
-
-  return axios.post(`${TRIPS_API}/${id}/join`, {}, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-}
-
-export async function leaveTrip(id) {
-  const token = localStorage.getItem("token");
-
-  return axios.post(`${TRIPS_API}/${id}/leave`, {}, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-}
