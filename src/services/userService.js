@@ -1,30 +1,15 @@
-
-import axios from "axios";
-
-const API = "http://localhost:3000/api/users";
+const PROFILE_API = "https://meet2exploree-b38798365d15.herokuapp.com/auth";
 
 export async function getProfile() {
   const token = localStorage.getItem("token");
-  if (!token) throw new Error("No token");
-
-  const res = await axios.get(`${API}/me`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+  return axios.get(`${PROFILE_API}/me`, {
+    headers: { Authorization: `Bearer ${token}` }
   });
-
-  return res.data;
 }
 
 export async function updateProfile(data) {
   const token = localStorage.getItem("token");
-  if (!token) throw new Error("No token");
-
-  const res = await axios.put(`${API}/me`, data, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+  return axios.put(`${PROFILE_API}/me`, data, {
+    headers: { Authorization: `Bearer ${token}` }
   });
-
-  return res.data;
 }
