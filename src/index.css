@@ -30,3 +30,14 @@ a {
   width: 100%;
   min-height: 100vh;
 }
+/* ===== MOBILE GLOBAL SETTINGS ===== */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* manji text na malim ekranima */
+    overflow-x: hidden; /* sprječava horizontalno skrolovanje */
+  }
+
+  #root {
+    padding: 8px;
+  }
+}

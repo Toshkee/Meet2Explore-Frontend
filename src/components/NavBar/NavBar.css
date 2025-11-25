@@ -134,3 +134,38 @@
 .nav-signout::after {
   background: #5837a4;
 }
+
+/* ============================
+   📱 MOBILE — NAVBAR
+   ============================ */
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 0 20px;
+    height: 60px;
+  }
+
+  .nav-logo-text {
+    font-size: 22px;
+  }
+
+  /* AUTH BUTTONS */
+  .nav-buttons {
+    gap: 10px;
+  }
+
+  .nav-login,
+  .nav-signup {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  /* LOGGED-IN MENU (dok ne dodamo hamburger) */
+  .nav-loggedin {
+    gap: 18px;
+  }
+
+  .nav-item {
+    font-size: 15px;
+  }
+}
