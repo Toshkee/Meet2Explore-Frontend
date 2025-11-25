@@ -9,7 +9,7 @@ export async function createTrip(data) {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await axios.post(API_URL, data, {
+    const res = await axios.post(`${process.env.API_URL}/trips`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -29,7 +29,7 @@ export async function getMyTrips() {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await axios.get(`${API_URL}/my`, {
+    const res = await axios.get(`${process.env.API_URL}/trips/my`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -49,7 +49,7 @@ export async function deleteTrip(id) {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await axios.delete(`${API_URL}/${id}`, {
+    const res = await axios.delete(`${process.env.API_URL}/trips/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -65,7 +65,7 @@ export async function updateTrip(id, data) {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await axios.put(`${API_URL}/${id}`, data, {
+    const res = await axios.put(`${process.env.API_URL}/trips/${id}`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -81,14 +81,14 @@ export async function updateTrip(id, data) {
 
 export async function joinTrip(id) {
   const token = localStorage.getItem("token");
-  return axios.post(`${API_URL}/${id}/join`, {}, {
+  return axios.post(`${process.env.API_URL}/trips/${id}/join`, {}, {
     headers: { Authorization: `Bearer ${token}` }
   });
 }
 
 export async function leaveTrip(id) {
   const token = localStorage.getItem("token");
-  return axios.post(`${API_URL}/${id}/leave`, {}, {
+  return axios.post(`${process.env.process.env.API_URL}/trips/${id}/leave`, {}, {
     headers: { Authorization: `Bearer ${token}` }
   });
 }

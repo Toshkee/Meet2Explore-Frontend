@@ -1,10 +1,9 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api/auth";
 
 export async function registerUser(username, password) {
   try {
-    const res = await axios.post(`${API_URL}/sign-up`, {
+    const res = await axios.post(`${process.env.API_URL}/auth/sign-up`, {
       username,
       password,
     });
@@ -25,7 +24,7 @@ export async function registerUser(username, password) {
 
 export async function loginUser(username, password) {
   try {
-    const res = await axios.post(`${API_URL}/sign-in`, {
+    const res = await axios.post(`${process.env.API_URL}/auth/sign-in`, {
       username,
       password,
     });
